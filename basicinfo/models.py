@@ -13,4 +13,7 @@ class BasicInfo(models.Model):
     teachersnum_text= models.CharField(max_length = 200)
     studentnum_text= models.CharField(max_length = 200)
     fill_date = models.CharField(max_length = 200)
+
+    def __str__(self):
+        return self.address_text
     
