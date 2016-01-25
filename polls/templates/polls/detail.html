@@ -1,7 +1,13 @@
 {% if questions_list %}
     <ul>
     {% for question in questions_list %}
-        <ol>{{  question.question_text }}</ol>
+        <ol>{{  question.question_text}} {{ question.question_type}}
+			
+			{%  for choice in  question.choice_set.all%}
+				<li>{{choice.choice_text}}<li>
+			{% endfor %}
+			
+        </ol>
     {% endfor %}
     </ul>
 {% else %}

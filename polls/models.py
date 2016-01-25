@@ -8,8 +8,16 @@ class QuestionSort(models.Model):
 		return self.questsort_text
 
 class Question(models.Model):
+	'''
+	1 单选
+	2 多选
+	3 填空
+	4 判断
+	5 简答
+	'''
 	question_text = models.CharField(max_length = 200)
 	pub_date = models.DateTimeField('date published')
+	question_type = models.CharField(max_length = 200,default="1")
 
 	def __str__(self):
 		return self.question_text
