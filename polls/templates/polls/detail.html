@@ -1,0 +1,9 @@
+{% if questions_list %}
+    <ul>
+    {% for question in questions_list %}
+        <ol>{{  question.question_text }}</ol>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
