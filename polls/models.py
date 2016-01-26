@@ -1,3 +1,4 @@
+#coding=utf-8
 from django.db import models
 
 # Create your models here.
@@ -10,7 +11,7 @@ class QuestionSort(models.Model):
 class Question(models.Model):
 	'''
 	1 单选
-	2 多选
+	2 cmd
 	3 填空
 	4 判断
 	5 简答

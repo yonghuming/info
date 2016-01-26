@@ -3,9 +3,9 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'detail' poll.id %}" method="post">
+<form action="{% url 'polls:tijiao' poll.id %}" method="post">
 {% csrf_token %}
-{% for question in questions_list %}
+{% for question in poll.questions.all %}
    {{ forloop.counter }}.{{ question.question_text }}<br>
     {%  for choice in  question.choice_set.all%}
         <input type="radio" name="choice{{ question.id }}" id="{{ forloop.counter }}" value="{{ choice.id }}" />
