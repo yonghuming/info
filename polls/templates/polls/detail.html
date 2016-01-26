@@ -1,15 +1,16 @@
-{% if questions_list %}
-    <ul>
-    {% for question in questions_list %}
-        <ol>{{  question.question_text}} {{ question.question_type}}
-			
-			{%  for choice in  question.choice_set.all%}
-				<li>{{choice.choice_text}}<li>
-			{% endfor %}
-			
-        </ol>
+
+<h1>{{ poll.poll_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'detail' poll.id %}" method="post">
+{% csrf_token %}
+{% for question in questions_list %}
+   {{ forloop.counter }}.{{ question.question_text }}<br>
+    {%  for choice in  question.choice_set.all%}
+        <input type="radio" name="choice{{ question.id }}" id="{{ forloop.counter }}" value="{{ choice.id }}" />
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% endfor %}
+<input type="submit" value="投票" />
+</form>

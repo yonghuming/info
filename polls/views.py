@@ -27,6 +27,7 @@ def detail(request, poll_id):
 	template = loader.get_template('polls/detail.html')
 	context = RequestContext(request,{
 		'questions_list': questions_list,
+		'poll':poll,
 		})
 	return HttpResponse(template.render(context))
 
