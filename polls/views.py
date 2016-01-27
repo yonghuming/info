@@ -17,6 +17,7 @@ def index(request):
 	查看所有问卷
 	'''
 	polls_list = Poll.objects.all()
+
 	template = loader.get_template('polls/index.html')
 	context = RequestContext(request,{
 		'polls_list': polls_list,
@@ -47,41 +48,27 @@ class UserForm(forms.Form):
 
 def login(request):
 	if request.method == 'POST':
-		userform = UserForm(request.POST)
-		if userform.is_valid():
+		username = request.POST['username']
+		username = request.POST['password']		
 
-			username = userform.cleaned_data['username']
-			password = userform.cleaned_data['password']
+		user = auth.authenticate(username=username, password=password)
 
-			user = auth.authenticate(username=username, password=password)
+		if user is not None and user.is_active:
+			auth.login(request,user)
 
-			if user is not None and user.is_active:
-				auth.login(request,user)
-				#returen view
-				#return render_to_response('/polls',{'username':username})
-				return HttpResponseRedirect('/polls/')
-			else:
-				#return view
-				return HttpResponseRedirect('/polls/login/')
+			return HttpResponseRedirect('/polls/')
+		else:
+
+			return HttpResponseRedirect('/polls/login/')
 	else:
-		#reuturn no valid
-		userform = UserForm()
-		
+		#return render_to_response('polls/login.html')
+		polls_list = Poll.objects.all()
 		template = loader.get_template('polls/login.html')
 		context = RequestContext(request,{
-			'userform': userform,
+			'polls_list': polls_list,
 			})
 		return HttpResponse(template.render(context))
 
-# def login(request):
-
-# 	userform = UserForm()
-	
-# 	template = loader.get_template('polls/index.html')
-# 	context = RequestContext(request,{
-# 		'userform': userform,
-# 		})
-# 	return HttpResponse(template.render(context))
 
 		
 	

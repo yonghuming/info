@@ -38,10 +38,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">青岛市教育信息化信息填报系统</a>
+          <a class="navbar-brand" href="{% url 'index' %}">青岛市教育信息化信息填报系统</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="post" method="post">
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'login' %}">登录</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">友情链接 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">青岛市教育局</a></li>
+            <li><a href="#">青岛市电教馆</a></li>
+            <li><a href="#">Django</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">视频会议客户端下载</a></li>
+          </ul>
+        </li>
+      </ul>
+        
+         <!--  <form class="navbar-form navbar-right" action="login/" method="post">
           {% csrf_token %}
            
             <div class="form-group">
@@ -51,7 +65,7 @@
               <input type="password" placeholder="密码" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">登录</button>
-          </form>
+          </form> -->
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -63,9 +77,12 @@
 </form>
  -->
  {% block content %}{% endblock %}
-      <footer>
-        <p>&copy; 青岛市电化教育馆 2016</p>
+      <div class="container">
+        <footer>
+        <p></p>
       </footer>
+      
+      </div>
     </div> <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
