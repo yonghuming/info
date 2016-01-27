@@ -1,4 +1,15 @@
 from django.db import models
+from django.contrib import admin
+class User(models.Model):
+	username = models.CharField(max_length = 50)
+	password = models.CharField(max_length = 50)
+
+	def  __str__(self):
+		return self.username
+
+class UserAdmin(admin.ModelAdmin):
+	list_display = ('username', 'password')
+		
 
 # Create your models here.
 class QuestionSort(models.Model):
