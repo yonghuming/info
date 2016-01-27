@@ -7,6 +7,8 @@ urlpatterns = [
 	url(r'^(?P<poll_id>[0-9]+)/$', views.detail, name='detail'),
 	url(r'^(?P<poll_id>[0-9]+)/results/$', views.results, name='results'),
 	url(r'^login/$', views.login, name='login'),
+	url(r'^logout/$', views.logout_view, name='logout'),
+
 
 	]
 

@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django import forms
 
+from django.contrib.auth import logout
+
 from django.template import RequestContext, loader
 
 from .models import Poll
@@ -67,6 +69,10 @@ def login(request):
 			'polls_list': polls_list,
 			})
 		return HttpResponse(template.render(context))
+
+def logout_view(request):
+	logout(request)
+	return HttpResponseRedirect('/polls/')
 
 
 		
