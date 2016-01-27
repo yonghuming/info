@@ -41,15 +41,12 @@ def detail(request, poll_id):
 def results(request, poll_id):
 	return HttpResponse('调查问卷填写结果 %s' % poll_id)
 
-class UserForm(forms.Form):
-	username = forms.CharField(label = '用户名',max_length = 200)
-	password = forms.CharField(label = '密码',widget = forms.PasswordInput())
 
 
 def login(request):
 	if request.method == 'POST':
 		username = request.POST['username']
-		username = request.POST['password']		
+		password = request.POST["password"]		
 
 		user = auth.authenticate(username=username, password=password)
 
