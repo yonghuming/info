@@ -50,3 +50,9 @@ class Poll(models.Model):
 
 	def __str__(self):
 		return self.poll_text
+
+class UserPoll(models.Model):
+	user_id = models.IntegerField()
+	poll_id = models.CharField(max_length = 200)
+
+	
