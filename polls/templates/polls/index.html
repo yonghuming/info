@@ -1,9 +1,14 @@
-{% if polls_list %}
+{% extends "polls/base.html" %}
+{% block title %}The current time{% endblock %}   
+{% block content %}	
+	{% if polls_list %}
     <ul>
     {% for poll in polls_list %}
         <li><a href="{% url 'detail' poll.id %}">{{ poll.poll_text }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+	{% else %}
+	    <p>No polls are available.</p>
+	{% endif %}
+
+{% endblock %}   
