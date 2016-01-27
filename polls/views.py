@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response,get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 from django.template import RequestContext, loader
 
@@ -35,3 +38,14 @@ def detail(request, poll_id):
 def results(request, poll_id):
 	return HttpResponse('调查问卷填写结果 %s' % poll_id)
 
+def login(request):
+	if request.method == 'GET':
+		return render_to_response('polls/login.html',RequestContext(request))
+	else:
+		return HttpResponseRedirect("/polls/")
+		# polls_list = Poll.objects.all()
+		# template = loader.get_template('polls/index.html')
+		# context = RequestContext(request,{
+		# 	'polls_list': polls_list,
+		# 	})
+		# return HttpResponse(template.render(context))
