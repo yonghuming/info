@@ -11,7 +11,7 @@ from django import forms
 from django.template import RequestContext, loader
 
 from .models import Poll
-
+@login_required
 def index(request):
 	'''
 	查看所有问卷
@@ -24,6 +24,7 @@ def index(request):
 		})
 	return HttpResponse(template.render(context))
 
+@login_required
 def detail(request, poll_id):
 	"""
 	读取指定问卷的题目，同时涉及到多对多的写法
@@ -38,6 +39,7 @@ def detail(request, poll_id):
 	return HttpResponse(template.render(context))
 
 
+@login_required
 def results(request, poll_id):
 	return HttpResponse('调查问卷填写结果 %s' % poll_id)
 
