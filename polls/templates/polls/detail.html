@@ -10,14 +10,21 @@
 			<form action="{% url 'detail' poll.id %}" method="post">
 				{% csrf_token %}
 				{% for question in questions_list %}
+				<!-- 判断不同类型的question -->
+
 				<div class="form-group">
-					<label > {{ forloop.counter }}.{{ question.question_text }}</label>
+					<label > {{ forloop.counter }}.{{ question.question_text }} 题型： {{question.question_type}} </label>
 					{%  for choice in  question.choice_set.all%}
 					<div class="checkbox">
 						<label>
 							   <input type="radio" name="choice{{ question.id }}" id="{{ forloop.counter }}" value="{{ choice.id }}" />
 							   <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+							   {% if choice.choice_text == '其他' %}
+								<input name="choice{{ question.id }}" id="{{ forloop.counter }}"   type="text">
+							   {% endif %}				       
+
 						</label>
+							  
 					</div>
 					{% endfor %}
 				</div>

@@ -26,6 +26,10 @@ class Question(models.Model):
 	3 填空
 	4 判断
 	5 简答
+	添加不同类型的问题的实现
+	新建问题的时候要可以选择问题的类型
+	自定义新建问题类型界面
+	
 	'''
 	question_text = models.CharField(max_length = 200)
 	pub_date = models.DateTimeField('date published')

@@ -5,7 +5,7 @@
 	<!-- 如果有登录则显示列表，否则显示首页 -->
 	<br>
 	<br>
-	
+	{{request.user.id}}
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -13,6 +13,7 @@
 				     {% for poll in polls_list %}
 				        <a class="list-group-item" href="{% url 'detail' poll.id %}">{{ poll.poll_text }}</a>
 				     {% endfor %}
+				        <a class="list-group-item">信息化月报填报系统</a>
 				</div>
 			</div>
 		</div>
