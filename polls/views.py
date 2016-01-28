@@ -12,17 +12,26 @@ from django.contrib.auth import logout
 
 from django.template import RequestContext, loader
 
-from .models import Poll
+from .models import Poll,UserPoll
 @login_required
 def index(request):
 	'''
 	查看所有问卷
 	'''
-	polls_list = Poll.objects.all()
+	up = UserPoll.objects.get (pk = request.user.id)
+	polls = up.poll_id.split(',')
+
+	
+
+	plist = []
+
+	for v in polls:
+		plist.append(Poll.objects.get (pk = int(v)))
 
 	template = loader.get_template('polls/index.html')
+	
 	context = RequestContext(request,{
-		'polls_list': polls_list,
+		'polls_list': plist,
 		})
 	return HttpResponse(template.render(context))
 

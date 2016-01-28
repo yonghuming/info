@@ -61,4 +61,5 @@ class UserPoll(models.Model):
 	user_id = models.IntegerField()
 	poll_id = models.CharField(max_length = 200)
 
-	
+	def add_poll(self,poll_id):
+		self.poll_id += (',' + poll_id);
