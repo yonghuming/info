@@ -18,22 +18,22 @@ def index(request):
 	'''
 	查看所有问卷
 	'''
-	up = UserPoll.objects.get (pk = request.user.id)
-	polls = up.poll_id.split(',')
-
-	
-
 	plist = []
 
-	for v in polls:
-		plist.append(Poll.objects.get (pk = int(v)))
-
-	template = loader.get_template('polls/index.html')
+	try:
+		up = UserPoll.objects.get (pk = request.user.id)
+		polls = up.poll_id.split(',')	
+		for v in polls:
+			plist.append(Poll.objects.get (pk = int(v)))
+	finally:
 	
-	context = RequestContext(request,{
-		'polls_list': plist,
-		})
-	return HttpResponse(template.render(context))
+
+		template = loader.get_template('polls/index.html')
+		
+		context = RequestContext(request,{
+			'polls_list': plist,
+			})
+		return HttpResponse(template.render(context))
 
 @login_required
 def detail(request, poll_id):
