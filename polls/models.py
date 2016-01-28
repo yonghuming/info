@@ -50,6 +50,7 @@ class Poll(models.Model):
 	"""
 	问卷类，实际的问题
 	"""
+	
 	poll_text = models.CharField(max_length = 200)
 	questions = models.ManyToManyField(Question)
 

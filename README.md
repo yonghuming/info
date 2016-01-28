@@ -25,3 +25,10 @@ Django的权限默认不是分级权限
 例如教育信息化示范学校评比，学校上传相关材料，在线审核，然后实地考察。
 上传活动照片，设定期限，比如定时上传会议音频或者照片，
 上传会议纪要
+
+#用到的库
+###bootstrap-static
+pip install django-bootstrap-static==3.3.6
+###django-admin-bootstrapped 
+Download it from PyPi with pip install django-admin-bootstrapped 
+django 1.8
