@@ -63,3 +63,6 @@ class UserPoll(models.Model):
 
 	def add_poll(self,poll_id):
 		self.poll_id += (',' + poll_id);
+
+	def __str__(self):
+		return str(self.user_id) +' & '+self.poll_id
