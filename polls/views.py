@@ -13,6 +13,7 @@ from django.contrib.auth import logout
 from django.template import RequestContext, loader
 
 from .models import Poll,UserPoll
+
 @login_required
 def index(request):
 	'''

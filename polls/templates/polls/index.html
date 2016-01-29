@@ -8,7 +8,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>青岛市教育信息化信息填报系统</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p>青岛市教育信息化信息填报系统arketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">了解填写 &raquo;</a></p>
       </div>
     </div>
@@ -17,18 +17,19 @@
       <!-- Example row of columns -->
       <div class="row">
         {% for poll in polls_list %}
-                <div class="col-md-4">
+                <div class="col-md-6">
                 <h2>{{ poll.poll_text }}</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p>说明：本调研问卷仅限了解学校信息化发展状况，与任何教育评估无关，请不必担心相关调研结果会对学校产生任何不良影响。同时，我们会对相关信息按国家有关法律规定严格保密，请根据学校情况真实填写。                                                                                                
+</p>
                 <p><a class="btn btn-default" href="{% url 'detail' poll.id %}" role="button">填写 &raquo;</a></p>
                 </div>
         {% endfor %}
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h2>青岛教育资源公共服务平台</h2>
           <p>Donec id elit non miio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">填写 &raquo;</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h2>青岛市视频会议系统</h2>
           <p>Donec id elit um nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">填写 &raquo;</a></p>
