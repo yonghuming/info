@@ -16,6 +16,7 @@ $RECYCLE.BIN/
 *.pyc
 # Windows shortcuts
 *.lnk
+/classview
 
 # =========================
 # Operating System Files
