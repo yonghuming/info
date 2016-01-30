@@ -38,7 +38,6 @@ class Question(models.Model):
 		('2','多选题'),
 		('3','填空题'),
 		('4','简答题'),
-
 		)
 	question_text = models.CharField(max_length = 200)
 	pub_date = models.DateTimeField('date published')

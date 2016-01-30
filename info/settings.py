@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'basicinfo',
     'polls',
+    'classview',
    
     'bootstrap',
 ]

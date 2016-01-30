@@ -18,6 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^polls/',include('polls.urls')),
+    url(r'^classview/',include('classview.urls')),
+
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login',{'template_name':'polls/login.html'}),
     
