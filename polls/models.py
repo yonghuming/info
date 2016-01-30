@@ -33,9 +33,16 @@ class Question(models.Model):
 	自定义新建问题类型界面
 	
 	'''
+	QUESTION_TYPE_CHOICES = (
+		('1','单选题'),
+		('2','多选题'),
+		('3','填空题'),
+		('4','简答题'),
+
+		)
 	question_text = models.CharField(max_length = 200)
 	pub_date = models.DateTimeField('date published')
-	question_type = models.CharField(max_length = 200,default="1")
+	question_type = models.CharField(max_length = 200,default="1",choices = QUESTION_TYPE_CHOICES)
 
 	def __str__(self):
 		return self.question_text
