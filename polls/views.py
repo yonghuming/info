@@ -41,14 +41,24 @@ def detail(request, poll_id):
 	"""
 	读取指定问卷的题目，同时涉及到多对多的写法
 	"""
-	poll = Poll.objects.get(pk = poll_id)
-	questions_list = poll.questions.all()
-	template = loader.get_template('polls/detail.html')
-	context = RequestContext(request,{
-		'questions_list': questions_list,
-		'poll':poll,
-		})
-	return HttpResponse(template.render(context))
+	if request.method == 'POST':
+		html = ''
+		for item in request.POST:
+			html += item
+			html += '>'
+			html += request.POST[item]
+			html += '<br>'
+		return HttpResponse(request);
+	else:
+
+		poll = Poll.objects.get(pk = poll_id)
+		questions_list = poll.questions.all()
+		template = loader.get_template('polls/detail.html')
+		context = RequestContext(request,{
+			'questions_list': questions_list,
+			'poll':poll,
+			})
+		return HttpResponse(template.render(context))
 
 
 @login_required
