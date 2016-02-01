@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib import admin
 
+from django.core.urlresolvers import reverse
 
 class User(models.Model):
 	username = models.CharField(max_length = 50)
@@ -62,6 +63,8 @@ class Poll(models.Model):
 	poll_text = models.CharField(max_length = 200)
 	questions = models.ManyToManyField(Question)
 
+	def get_absolute_url(self):
+		return reverse('poll-detail', kwargs={'pk':self.pk})
 	def __str__(self):
 		return self.poll_text
 
@@ -74,3 +77,10 @@ class UserPoll(models.Model):
 
 	def __str__(self):
 		return str(self.user_id) +' & '+self.poll_id
+
+class UserPollAnswer(models.Model):
+	user_id = models.IntegerField()
+	poll_id = models.IntegerField()
+	questtion_id = models.IntegerField(default=1)
+	choices = models.CharField(max_length = 200,blank = True)
+	answer_text = models.CharField(max_length = 200,blank = True)

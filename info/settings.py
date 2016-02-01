@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+# -*- coding: utf-8 -*-
+
+gettext = lambda s: s
+PROJECT_PATH = os.path.split(os.path.abspath(os.path.dirname(__file__)))[0]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,13 +33,25 @@ SECRET_KEY = '!av$_ofe5%(o1@40cs@0xdkha6t&x)hw1&#4!4m5-t3x#_c$0a'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+   # 'autoforms',
+   'cms', 
+   'mptt', 
+   'menus', 
+   'south',
+   'sekizai',
+   'djangocms_forms',
 
-   
+
+   'django_extensions',
+    'django_baker',
     'django.contrib.admin',
     'django.contrib.admindocs',    
     'django.contrib.auth',
@@ -157,3 +173,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+

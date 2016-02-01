@@ -1,7 +1,7 @@
 #coding=utf-8
 from django.contrib import admin
 
-from .models import UserAdmin,Choice, Question, QuestionSort,Poll,User,UserPoll
+from .models import UserAdmin,Choice, Question, QuestionSort,Poll,User,UserPoll,UserPollAnswer
 
 
 class ChoiceInline(admin.TabularInline):
@@ -25,5 +25,6 @@ class PollUserAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Poll)
-admin.site.register(User,UserAdmin)
+#admin.site.register(User,UserAdmin)
 admin.site.register(UserPoll,PollUserAdmin)
+admin.site.register(UserPollAnswer)

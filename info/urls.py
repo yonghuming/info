@@ -15,14 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from polls.views import PollCreate
 
 urlpatterns = [
     url(r'^polls/',include('polls.urls')),
     url(r'^classview/',include('classview.urls')),
+  #  url(r'^autoforms/',include('autoforms.urls')),
 
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login',{'template_name':'polls/login.html'}),
     
+    url(r'poll/add/$', PollCreate.as_view(), name='author_add'),
 
 
 ]
