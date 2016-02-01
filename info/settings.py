@@ -42,13 +42,6 @@ GRAPH_MODELS = {
 
 INSTALLED_APPS = [
    # 'autoforms',
-   'cms', 
-   'mptt', 
-   'menus', 
-   'south',
-   'sekizai',
-   'djangocms_forms',
-
 
    'django_extensions',
     'django_baker',
